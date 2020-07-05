@@ -24,25 +24,47 @@
                                     <segment title="apple"/>
                                     <segment title="google"/>
                                 </segments>
+                                <connections>
+                                    <action selector="bookMarkAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="kyn-NH-B31"/>
+                                </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbJ-yN-nCF">
                                 <rect key="frame" x="0.0" y="51" width="414" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="neN-ar-vL5"/>
+                                </connections>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IuV-21-jVG">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="vpY-jx-tBX"/>
-                                    <barButtonItem systemItem="rewind" id="o7r-YF-PKa"/>
+                                    <barButtonItem systemItem="rewind" id="o7r-YF-PKa">
+                                        <connections>
+                                            <action selector="goBackAction:" destination="BYZ-38-t0r" id="4hj-G2-kEs"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nJf-ep-R7y"/>
-                                    <barButtonItem systemItem="fastForward" id="XNV-2j-pHI"/>
+                                    <barButtonItem systemItem="fastForward" id="XNV-2j-pHI">
+                                        <connections>
+                                            <action selector="goForwardAction:" destination="BYZ-38-t0r" id="oy4-1n-MYI"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="njP-RY-due"/>
-                                    <barButtonItem systemItem="stop" id="99W-ZY-DVw"/>
+                                    <barButtonItem systemItem="stop" id="99W-ZY-DVw">
+                                        <connections>
+                                            <action selector="stopLoadingAction:" destination="BYZ-38-t0r" id="7MB-eL-bku"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="CPc-6H-4uK"/>
-                                    <barButtonItem systemItem="refresh" id="oG7-Jl-CpD"/>
+                                    <barButtonItem systemItem="refresh" id="oG7-Jl-CpD">
+                                        <connections>
+                                            <action selector="refreshAction:" destination="BYZ-38-t0r" id="L1I-hI-NqC"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jtj-jH-zT1"/>
                                 </items>
                             </toolbar>
@@ -55,7 +77,7 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VQC-ov-gey">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VQC-ov-gey">
                                 <rect key="frame" x="184" y="344" width="46" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,10 +86,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bookMarkSegmentedControl" destination="GXz-pE-J2Q" id="6SF-F6-wBz"/>
+                        <outlet property="mainWebView" destination="eNi-lj-H13" id="dTp-bq-J6E"/>
+                        <outlet property="spinningActivityIndicatorView" destination="VQC-ov-gey" id="Qpb-mv-XDC"/>
+                        <outlet property="urlTextField" destination="jbJ-yN-nCF" id="hou-Lc-pzJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="136.95652173913044"/>
+            <point key="canvasLocation" x="562" y="6"/>
         </scene>
     </scenes>
 </document>
